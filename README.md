@@ -18,6 +18,8 @@ nix develop
 
 This will enter a shell with the development environment.
 
+This shell is entered automatically when using `direnv`.
+
 ## Building the website
 
 ```bash

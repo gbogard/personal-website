@@ -4,9 +4,11 @@ employer:
   name: Qwant
   link: https://www.qwant.com/
 startDate: 2022-12-13
+endDate: 2025-04-01
 tools:
   - rust
   - kubernetes
+  - python
 description: |
   As a Rust Software Engineer at Qwant, one of Europe's leading search engines, I focus on developing and optimizing web-scale crawling systems and content processing pipelines.</br>
   My significant contributions include developing a high-performance HTML content extraction service that matches the quality of industry standards while operating at substantially faster speeds. I architected a sharded, lock-free crawling system that dramatically improved performance while maintaining strict website politeness policies. The system includes sophisticated robots.txt handling with caching and parsing capabilities for URL filtering.<br/>
