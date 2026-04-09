@@ -1,8 +1,8 @@
 {
-  description = "Portfolio development environment";
+  description = "Personal website development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -16,10 +16,7 @@
           name = "portfolio-shell";
           buildInputs = with pkgs; [ 
             hugo
-            nodejs_22
-            (nodePackages.yarn.override {
-              nodejs = nodejs_22;
-            })
+            nodejs_24
           ];
         };
       });

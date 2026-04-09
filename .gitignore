@@ -11,3 +11,4 @@ hugo.darwin
 hugo.linux
 .vscode
 node_modules
+.direnv

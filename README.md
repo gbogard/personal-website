@@ -33,8 +33,8 @@ This will build the website and output it to the `public` directory.
 Install the dependencies:
 
 ```bash
-yarn
-yarn playwright:install
+npm i
+npm run playwright:install
 ```
 
 Launch the Hugo server:
@@ -46,7 +46,7 @@ hugo serve
 Then generate the PDF:
 
 ```bash
-yarn generate-pdf
+npm run generate-pdf
 ```
 
 This will generate a PDF version of the resume and output it to the `public` directory.
