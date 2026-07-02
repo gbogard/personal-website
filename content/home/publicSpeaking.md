@@ -22,16 +22,3 @@ I also gave functional programming introduction classes to students in engineeri
 - [Functional programming with fp-ts @ Linkvalue (2018)](https://github.com/gbogard/fp-ts-talk)
 - [Introduction to Akka actors for beginners @ Scala.io (2018) (Talk in French)](https://www.youtube.com/watch?v=tcj8IaG9_wc)
 
-### Functional programming training
-I enjoy sharing my knowledge and producing educational content. I am an experienced 
-programming instructor and have taught functional programming in Scala 
-to dozens of professional developers and computer science students.
-
-I can deliver training sessions, in English and French, covering, but not limited to
-- programming with pure functions
-- building HTTP applications using pure functional programming in Scala
-- functional programming foundations in Haskell
-
-If you are interested in in-person training on Scala and FP for you or your team, [get in touch](#get-in-touch).
-
-

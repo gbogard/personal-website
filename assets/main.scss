@@ -1,0 +1,78 @@
+#homepage-image {
+  margin: 0 2rem 2rem 0;
+  float: left;
+
+  @media(--phone) {
+    max-width: 200px;
+    float: none;
+  }
+}
+
+#homepage-videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+
+  a {
+    img {
+      max-height: 140px;
+      margin: 0;
+      padding: 4px;
+      border-width: 4px;
+    }
+  }
+}
+
+.resume {
+  position: relative;
+
+  @media print {
+    margin-top: 1rem;
+    padding-bottom: 100rem;
+  }
+}
+
+.job {
+  margin-bottom: 1rem;
+  padding: 1rem 0 0 0;
+  position: relative;
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .employer::before {
+    display: none;
+  }
+
+  @media print {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .job-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding-bottom: .5rem;
+
+
+  }
+
+  .job-title .tools {
+    display: flex;
+    align-items: center;
+  }
+
+  .job-title .tools img {
+    height: 1rem;
+    margin: .5rem;
+    padding: 0;
+    border: none;
+    flex-shrink: 0;
+
+  }
+
+}

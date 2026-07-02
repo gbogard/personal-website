@@ -1,0 +1,83 @@
+{{ define "main" }}
+<div class="post job">
+  <h1 class="post-title job-title">
+    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+    <div class="tools">
+      {{ range .Params.tools }}
+      <img src="/tools/{{.}}.png" alt="{{.}}">
+      {{end}}
+    </div>
+  </h1>
+  <div class="post-meta">
+    <div class="date">
+      {{ with .Params.startDate }}
+      📅 From <span class="post-date"> {{ (time .).Format "January 2006" }}
+      </span>
+      {{ end }}
+      {{ with .Params.endDate }}
+      to <span class="post-date"> {{ (time .).Format "January 2006" }}
+      </span>
+      {{ end }}
+    </div>
+    <div class="employer">
+      {{ if .Params.employer }}
+      💼 <a href="{{.Params.employer.link}}">{{.Params.employer.name}}</a>
+      {{ if .Params.client }}
+      for <a href="{{.Params.client.link}}">{{.Params.client.name}}</a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+
+  {{ if .Params.tags }}
+  <span class="post-tags">
+    {{ range .Params.tags }}
+    #<a href="{{ (urlize (printf " tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+    {{ end }}
+  </span>
+  {{ end }}
+
+  {{ with .Params.Cover }}
+  <img src="{{ . | absURL }}" class="post-cover" />
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  {{ if $.Param "images" }}
+  <div class="img-grid">
+    {{ range $.Param "images" }}
+    <img src="{{ . }}" />
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ if or .NextInSection .PrevInSection }}
+  <div class="pagination">
+    <div class="pagination__title">
+      <span class="pagination__title-h">{{ $.Site.Params.ReadOtherPosts }}</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      {{ if .NextInSection }}
+      <span class="button previous">
+        <a href="{{ .NextInSection.Permalink }}">
+          <span class="button__icon">←</span>
+          <span class="button__text">{{ .NextInSection.Title }}</span>
+        </a>
+      </span>
+      {{ end }}
+      {{ if .PrevInSection }}
+      <span class="button next">
+        <a href="{{ .PrevInSection.Permalink }}">
+          <span class="button__text">{{ .PrevInSection.Title }}</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ partial "comments.html" . }}
+</div>
+{{ end }}

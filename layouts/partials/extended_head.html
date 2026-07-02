@@ -1,0 +1,2 @@
+{{ $styles := resources.Get "main.scss" | css.Sass | minify }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
