@@ -11,6 +11,6 @@
     "generate-pdf": "node generatePdf.js"
   },
   "dependencies": {
-    "playwright": "^1.22.2"
+    "playwright": "^1.55.1"
   }
 }
