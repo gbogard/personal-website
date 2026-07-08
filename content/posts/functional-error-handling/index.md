@@ -418,7 +418,7 @@ def authenticate(userName: String, password: String): IO[User] =
 This method first attempts to find my user, then verifies every business rule one after the other, and finally returns my user if everything went well. If any of these intermediate
 programs raises an exception, the execution of the entire composition will be aborted, and my `authenticate` method will itself return a failed `IO` with whatever went wrong.
 Note that right now, all the checks are made in series cause that's how monads work, but since we are using `IO` and since the program is most likely bound by the network,
-independent checks could be done in parallel for improved performance. Have a look at [start/join](https://typelevel.org/cats-effect/datatypes/io.html#concurrent-start--cancel) 
+independent checks could be done in parallel for improved performance. Have a look at [start/join](https://typelevel.org/cats-effect/docs/2.x/datatypes/io#concurrent-start--cancel) 
 to see how it can be achieved. 
 
 Once I have my intermediate programs all composed together, I can call my `authenticate` method and choose what to do with my user. Eventually, I will also have to `recover` my
