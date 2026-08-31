@@ -7,10 +7,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "playwright:install": "playwright install",
-    "generate-pdf": "node generatePdf.js"
+    "export-resume": "node exportResume.js",
+    "resume-pdf": "typst compile resume.typ assets/resume.pdf",
+    "generate-pdf": "npm run export-resume && npm run resume-pdf"
   },
   "dependencies": {
-    "playwright": "^1.22.2"
+    "gray-matter": "4.0.3"
   }
 }

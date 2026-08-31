@@ -30,23 +30,19 @@ This will build the website and output it to the `public` directory.
 
 ## Generating a PDF version of the resume
 
-Install the dependencies:
+The PDF résumé is rendered from the live `/resume/` section of the site (`content/resume/`),
+so the PDF can never drift from the website. Two stages keep that promise:
+
+1. `npm run export-resume` — reads the Hugo content (`content/resume/`), resolves the
+   `{{% include %}}` shortcodes, and writes a neutral `resume.yaml` (gitignored).
+2. `npm run resume-pdf`   — compiles `resume.typ` (the layout template) with **Typst**,
+   using that data, into `assets/resume.pdf`.
+
+`npm run generate-pdf` does both. Everything needed (Node, Typst, fonts) is provided
+by the nix dev shell:
 
 ```bash
-npm i
-npm run playwright:install
+nix develop          # or let direnv handle it
+npm install          # once
+npm run generate-pdf # renders assets/resume.pdf
 ```
-
-Launch the Hugo server:
-
-```bash
-hugo serve
-```
-
-Then generate the PDF:
-
-```bash
-npm run generate-pdf
-```
-
-This will generate a PDF version of the resume and output it to the `public` directory.
