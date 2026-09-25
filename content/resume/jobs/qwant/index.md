@@ -1,5 +1,5 @@
 ---
-title: Rust Software Engineer @Qwant (Crawler Team)
+title: Senior Software Engineer (Crawler Team)
 employer:
   name: Qwant
   link: https://www.qwant.com/
@@ -11,10 +11,9 @@ tools:
   - python
 ---
 
-- Built a high-performance HTML content extraction service in Rust, matching industry-standard quality (e.g. Trafilatura) while running orders of magnitude faster
-- Architected a sharded, lock-free crawler that dramatically improved throughput while enforcing strict politeness policies (no more than one concurrent download per website)
-- Built a service that downloads, caches and parses robots.txt files, then filters URLs against the rules they contain
-- Worked across the crawler's core: URL redirection, URL filtering and end-to-end testing
+- Built a high-performance clean content extraction service in Rust, matching or beating industry-standard (Trafilatura) quality of extraction while running orders of magnitude faster
+- Architected a sharded, lock-free crawler that dramatically improved crawling throughput while enforcing strict politeness policies
+- Worked across the crawler's core: URL redirection, URL filtering, robots.txt enforcement, specialized scrapers and end-to-end testing
 
 <!--more-->
 

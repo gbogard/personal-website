@@ -2,11 +2,17 @@
 
 <div class="posts resume">
   {{ .Content }}
+  <p>
+  📍🌍 Paris, FR<br/>
+  Contact: <i>hey [at] guillaumebogard.dev</i>.
+  </p>
   <h2 class="post-title">Work experience</h2>
   {{ range (.Pages.ByParam "startDate").Reverse }}
   {{ partial "job-item.html" . }}
   {{ end }}
   <br/>
   {{ partial "skills.md" . | markdownify }}
+  <br/>
+  {{ partial "education.md" . | markdownify }}
 </div>
 {{ end }}

@@ -1,5 +1,5 @@
 ---
-title: Front-end developer @Norauto
+title: Front-end developer
 employer:
   name: Linkvalue
   link: http://link-value.fr

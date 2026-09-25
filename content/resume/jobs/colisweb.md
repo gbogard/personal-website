@@ -1,5 +1,5 @@
 ---
-title: Scala developer @Colisweb
+title: Scala developer
 employer:
   name: Linkvalue
   link: http://link-value.fr

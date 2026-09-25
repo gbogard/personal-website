@@ -6,6 +6,13 @@
 
 #let data = yaml("resume.yaml")
 
+// Text palette borrowed from the website (static/terminal.css).
+#let fg = rgb("#403352")
+#let accent = rgb("#6f49ab")
+#let muted = rgb("#7c7192")
+
+#let contact = "hey@guillaumebogard.dev / +33 6 19 58 32 35 / Paris, FR"
+
 #set document(title: data.author)
 
 #set page(
@@ -15,17 +22,14 @@
     let current = counter(page).get().first()
     let total = counter(page).final().first()
     if current > 1 [
-      #align(center)[#text(8pt, fill: rgb("#999999"))[#current / #total]]
+      #align(center)[#text(8pt, fill: muted)[#current / #total]]
     ]
   },
 )
 
-#set text(font: "Noto Sans", size: 9.5pt, lang: "en")
+#set text(font: "Noto Sans", size: 9.5pt, lang: "en", fill: fg)
 #set par(justify: true, leading: 0.44em)
 #set heading(numbering: none)
-
-#let muted = rgb("#555555")
-#let accent = rgb("#1a5fb4")
 
 // ------------------------------------------------ helpers
 
@@ -66,8 +70,10 @@
 // ------------------------------------------------ document
 
 #align(center)[
-  #text(size: 19pt, weight: "bold", tracking: 0.02em)[#data.author]
-  #v(1pt)
+  #text(size: 19pt, weight: "bold", tracking: 0.02em, fill: accent)[#data.author]
+  #v(-10pt)
+  #text(size: 9pt, fill: muted)[#contact]
+  #v(3pt)
   #block(width: 12cm, rule())
 ]
 
@@ -103,3 +109,6 @@
 
 #section("Skills")
 #render(data.skills)
+
+#section("Education")
+#render(data.education)

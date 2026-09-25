@@ -1,5 +1,5 @@
 ---
-title: Full-Stack developer @Pingflow
+title: Full-Stack developer
 employer:
   name: Pingflow
   link: https://www.pingflow.com/en/home/

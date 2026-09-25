@@ -109,6 +109,8 @@ function emitYaml(data) {
   for (const l of data.about.split("\n")) lines.push(`  ${l}`)
   lines.push("skills: |")
   for (const l of data.skills.split("\n")) lines.push(`  ${l}`)
+  lines.push("education: |")
+  for (const l of data.education.split("\n")) lines.push(`  ${l}`)
   lines.push("jobs:")
   for (const j of data.jobs) {
     lines.push(`  - title: ${JSON.stringify(j.title)}`)
@@ -142,6 +144,10 @@ function main() {
     fs.readFileSync(path.join(root, "layouts", "partials", "skills.md"), "utf8")
   )
 
+  const education = cleanMarkdown(
+    fs.readFileSync(path.join(root, "layouts", "partials", "education.md"), "utf8")
+  )
+
   const jobs = fs
     .readdirSync(jobsDir, { withFileTypes: true })
     .flatMap((entry) => {
@@ -157,7 +163,7 @@ function main() {
     .sort((a, b) => new Date(b._start) - new Date(a._start))
     .map(({ _start, ...job }) => job)
 
-  fs.writeFileSync(out, emitYaml({ author, about, skills, jobs }))
+  fs.writeFileSync(out, emitYaml({ author, about, skills, education, jobs }))
   console.log(`Wrote ${out} (${jobs.length} jobs)`)
 }
 

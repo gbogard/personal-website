@@ -1,5 +1,5 @@
 ---
-title: Full-stack Javascript developer @Decathlon Maps
+title: Full-stack Javascript developer
 employer:
   name: Linkvalue
   link: http://link-value.fr

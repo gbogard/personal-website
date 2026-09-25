@@ -9,11 +9,9 @@ tools:
   - react
   - nix
 ---
-
-- Building a RAG-based AI assistant that lets users query technical documents (ISO standards, assembly drawings, industrial specs) in natural language
-- Building a large-scale PDF indexer that ingests thousands of customer documents into the RAG system
-- Shipping AI-powered suggestions for related documents and products, improving traceability across the PLM
-- Full-stack development in TypeScript (Effect.ts, React) and Haskell, alongside ongoing LLM research
+- Building an AI agent that lets users interact with technical documents (ISO standards, assembly drawings, industrial specs) and PLM data (BOMs, manufacturing orders etc.). This includes a large scale indexer for thousands of customer documents and a comparison system for technical documents.
+- Shipping a recommendation system to help find related documents and products, improving traceability across the PLM
+- Full-stack development in TypeScript (Effect.ts, React) and Haskell of various PLM features
 
 <!--more-->
 

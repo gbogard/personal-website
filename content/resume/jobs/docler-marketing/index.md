@@ -1,5 +1,5 @@
 ---
-title: Junior Javascript Developer @Docler Holding
+title: Junior Javascript Developer
 employer:
   name: Docler Holding
   link: https://www.doclerholding.com/en/main/
