@@ -70,7 +70,7 @@
   columns: (55pt, 1fr),
   column-gutter: 12pt,
   // the site's photo lives in assets/ and is served through Hugo Pipes
-  [#image("assets/picture.jpg", width: 55pt)],
+  [#image("assets/picture.png", width: 55pt)],
   render(data.about),
 )
 #v(10pt)

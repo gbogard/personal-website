@@ -1,5 +1,5 @@
 {{ with .Get "image" }}
 {{$image := resources.Get . }}
-{{ $resized := $image.Fill "110x110 Center "}}
-<img src="{{ $resized.RelPermalink}}" style="margin: 0 1rem .5rem 0; float: left;" />
+{{ $resized := $image.Fill "80x100 Center "}}
+<img src="{{ $resized.RelPermalink}}" style="margin: 1rem 1rem .5rem 0; float: left; border-width: 2px;" />
 {{ end }}

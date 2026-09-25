@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $image := resources.Get "picture.jpg" }}
+{{ $image := resources.Get "picture.png" }}
 {{ $resizedImage := $image.Resize "150x" }}
 {{ $posts := first 5 (where site.RegularPages "Section" "posts") }}
 {{ $videos := first 5 (where site.RegularPages "Section" "videos") }}
