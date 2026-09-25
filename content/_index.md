@@ -3,7 +3,7 @@ Hi there! Thanks for stopping on my website.
 **My name is Guillaume Bogard, I am a senior software engineer with an appeal for functional programming, statically-typed languages
 and distributed systems.**
 
-I've been programming for about 20 years, and professionally so for 10+ years.
+I've been programming for about 16 years, and professionally so for 10+ years.
 
 At my current job at [Aletiq](https://www.aletiq.com), I use mostly Haskell and Typescript, but I also have strong commercial experience with Scala and Rust.
 
