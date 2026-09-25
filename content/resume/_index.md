@@ -12,4 +12,7 @@ the back and front ends.
 Nowadays, I mostly use Haskell and Typescript professionally, but my experience spans multiple languages including 4 years of commercial Scala,
 and 2 years of commercial experience with Rust. My achievements include building AI agents and RAG systems for Aletiq, and building a web-scale crawler for Qwant.
 
+📍🌍 Paris, FR<br/>
+Contact: *hey [at] guillaumebogard.dev*.
+
 [Dowloadable résumé (PDF)](/resume.pdf)
