@@ -7,12 +7,11 @@ startDate: 2019-10-01
 endDate: 2019-10-10
 tools:
   - scala
-showFullContent: true
 ---
 
-Taught a 15-hour tutorial course on functional programming to students of the HEI School of Engineering in Lille.
+- Taught a 15-hour functional programming course in Scala to engineering students (referential transparency, totality, laziness, composition, IO monads and functional streams with Cats Effect and fs2)
+- Guided students through a project: a purely functional Tic-Tac-Toe played over TCP
 
-The course covered the fundamentals of functional programming in Scala (referential transparency, totality, lazy and eager evaluation, composition, collections manipulation ...) 
-and a few more advanced topics such as IO monads and functional streams (using Cats effect and fs2).
+<!--more-->
 
-We applied these notions to the making of a project : a purely functional Tic Tac Toe game that could be played simultaneously on two computers through a TCP server.
+École des Hautes Études d'Ingénieur (HEI) is a graduate school of engineering in Lille, France.

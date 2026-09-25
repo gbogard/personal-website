@@ -15,4 +15,4 @@ and 2 years of commercial experience with Rust. My achievements include building
 📍🌍 Paris, FR<br/>
 Contact: *hey [at] guillaumebogard.dev*.
 
-[Dowloadable résumé (PDF)](/resume.pdf)
+{{<resume-pdf>}}

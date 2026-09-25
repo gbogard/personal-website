@@ -9,8 +9,8 @@
  * The layout mirrors what the /resume/ page renders (layouts/resume/list.html
  * + layouts/partials/job-item.html):
  *   - date range, employer (and client, when present), tools
- *   - body = full content when showFullContent, else `description`, else the
- *     first paragraph (Hugo's auto-summary approximation)
+ *   - body = the summary, i.e. the content before the `<!--more-->` divider
+ *     (company descriptions and other detail are website-only)
  *   - jobs sorted by startDate, most recent first
  *
  * `{{% include "path" %}}` shortcodes are resolved like Hugo does.
@@ -51,6 +51,7 @@ function toIso(input) {
 // drop HTML tags, turn <br> into line breaks, collapse blank lines.
 function cleanMarkdown(raw) {
   return raw
+    .replace(/\{\{<[\s\S]*?>\}\}/g, "") // drop inline shortcodes (e.g. {{<small-image>}}, {{<resume-pdf>}})
     .replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gis, "") // drop headings (e.g. the "About me" title)
     .replace(/<\/?br\s*\/?>/gi, "\n")
     .replace(/<img[^>]*>/gi, "")
@@ -66,10 +67,11 @@ function resolveIncludes(file, content) {
   })
 }
 
-function firstParagraph(md) {
-  const paragraphs = md.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
-  const first = paragraphs[0] ? paragraphs[0].replace(/\n/g, " ") : ""
-  return first.length > 600 ? first.slice(0, 600).trimEnd() + "..." : first
+// Content before the `<!--more-->` divider: the job summary exported to the PDF.
+function summaryOnly(md) {
+  const marker = "<!--more-->"
+  const i = md.indexOf(marker)
+  return i === -1 ? md : md.slice(0, i)
 }
 
 // Render simple markdown as Typst-agnostic text suitable for cmarker:
@@ -81,14 +83,10 @@ function markdownBody(md) {
 function parseJob(file) {
   const raw = fs.readFileSync(file, "utf8")
   const { data, content } = matter(resolveIncludes(file, raw))
-  const body = cleanMarkdown(content)
 
-  const showFullContent = Boolean(data.showFullContent)
-  const bodyText = showFullContent
-    ? markdownBody(body)
-    : data.description
-      ? markdownBody(String(data.description))
-      : firstParagraph(markdownBody(body))
+  // Only the summary (content before the `<!--more-->` divider) is exported to
+  // the PDF; company descriptions and other detail stay on the website.
+  const bodyText = markdownBody(summaryOnly(content))
 
   return {
     title: String(data.title || path.basename(path.dirname(file))),
@@ -109,6 +107,8 @@ function emitYaml(data) {
   lines.push(`author: ${JSON.stringify(data.author)}`)
   lines.push("about: |")
   for (const l of data.about.split("\n")) lines.push(`  ${l}`)
+  lines.push("skills: |")
+  for (const l of data.skills.split("\n")) lines.push(`  ${l}`)
   lines.push("jobs:")
   for (const j of data.jobs) {
     lines.push(`  - title: ${JSON.stringify(j.title)}`)
@@ -138,6 +138,10 @@ function main() {
     matter(fs.readFileSync(path.join(resumeDir, "_index.md"), "utf8")).content
   )
 
+  const skills = cleanMarkdown(
+    fs.readFileSync(path.join(root, "layouts", "partials", "skills.md"), "utf8")
+  )
+
   const jobs = fs
     .readdirSync(jobsDir, { withFileTypes: true })
     .flatMap((entry) => {
@@ -153,7 +157,7 @@ function main() {
     .sort((a, b) => new Date(b._start) - new Date(a._start))
     .map(({ _start, ...job }) => job)
 
-  fs.writeFileSync(out, emitYaml({ author, about, jobs }))
+  fs.writeFileSync(out, emitYaml({ author, about, skills, jobs }))
   console.log(`Wrote ${out} (${jobs.length} jobs)`)
 }
 

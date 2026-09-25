@@ -10,7 +10,7 @@
 
 #set page(
   paper: "a4",
-  margin: (x: 1.7cm, y: 1.6cm),
+  margin: (x: 1.7cm, y: 0.95cm),
   footer: context {
     let current = counter(page).get().first()
     let total = counter(page).final().first()
@@ -21,7 +21,7 @@
 )
 
 #set text(font: "Noto Sans", size: 9.5pt, lang: "en")
-#set par(justify: true, leading: 0.55em)
+#set par(justify: true, leading: 0.44em)
 #set heading(numbering: none)
 
 #let muted = rgb("#555555")
@@ -35,37 +35,43 @@
   fill: rgb("#cccccc"),
 )
 
+// Top-level section heading (About me, Work experience, Skills).
+#let section(title) = [
+  #text(size: 13pt, weight: "bold", fill: accent)[#title]
+  #v(1pt)
+  #rule()
+  #v(3pt)
+]
+
 #let period(job) = {
   let end = if job.end == none { "Present" } else { job.end }
   job.start + " – " + end
 }
 
+// Small, muted employer/client line beneath a job title.
 #let meta(job) = {
   let parts = ()
   if "employer" in job and job.employer != none {
-    parts.push([*#job.employer*])
+    parts.push([#text(size: 9pt, weight: "bold", fill: muted)[#job.employer]])
   }
   if "client" in job and job.client != none {
-    parts.push([#job.client])
+    parts.push([#text(size: 9pt, fill: muted)[#job.client]])
   }
   if "tools" in job and job.tools.len() > 0 {
-    parts.push([#text(fill: accent)[#job.tools.join(" · ") ]])
+    parts.push([#text(size: 9pt, fill: accent)[#job.tools.join(" · ") ]])
   }
-  parts.join([#h(0.45em)#text(fill: muted)[·]#h(0.45em)])
+  parts.join([#h(0.45em)#text(size: 9pt, fill: muted)[·]#h(0.45em)])
 }
 
 // ------------------------------------------------ document
 
 #align(center)[
-  #text(size: 21pt, weight: "bold", tracking: 0.02em)[#data.author]
+  #text(size: 19pt, weight: "bold", tracking: 0.02em)[#data.author]
   #v(1pt)
   #block(width: 12cm, rule())
 ]
 
-#v(10pt)
-
-#text(size: 10.5pt, weight: "bold")[About me]
-#v(4pt)
+#v(8pt)
 #grid(
   columns: (55pt, 1fr),
   column-gutter: 12pt,
@@ -73,29 +79,27 @@
   [#image("assets/picture.png", width: 55pt)],
   render(data.about),
 )
-#v(10pt)
 
-#text(size: 10.5pt, weight: "bold")[Experience]
-#v(5pt)
-
+#section("Work experience")
 #for job in data.jobs [
-  #block(breakable: true)[
+  #block(breakable: false)[
     #grid(
       columns: (1fr, auto),
-      row-gutter: 2pt,
+      row-gutter: 1pt,
       [
         #text(size: 10.5pt, weight: "bold")[#job.title]
-        #v(1.5pt)
+        #v(1pt)
         #meta(job)
       ],
       [
         #text(9pt, fill: muted)[#period(job)]
       ],
     )
-    #v(5pt)
+    #v(1pt)
     #render(job.body)
-    #v(8pt)
-    #rule()
-    #v(8pt)
+    #v(4pt)
   ]
 ]
+
+#section("Skills")
+#render(data.skills)

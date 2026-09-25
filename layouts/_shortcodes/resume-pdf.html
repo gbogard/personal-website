@@ -1,0 +1,1 @@
+{{ $pdf := resources.Get "resume.pdf" }}<a style="margin-bottom: 1rem; display: block" target="_blank" href="{{ with $pdf }}{{ .RelPermalink }}{{ else }}/resume.pdf{{ end }}">Download the résumé (PDF)</a>
