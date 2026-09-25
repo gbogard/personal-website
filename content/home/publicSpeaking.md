@@ -1,8 +1,7 @@
 ### Public Speaking
 
-I've had several opportunities to talk publicly about my favorite topics : Functional programming and distributed systems.
-
-I also gave functional programming introduction classes to students in engineering. Here are some of my talks:
+Over the years, I've had several opportunities to speak publicly about my favorite topics: Functional programming and distributed systems.
+Some of my interventions have recordings and/or slides available online:
 
 - [Playing board games with Scala JS (2021) @ Scalacon](https://www.youtube.com/watch?v=2KXfIvdwjdg)
 - A gentle introduction to Conflict-free Replicated data types (CRDTs) (2021)
@@ -21,4 +20,3 @@ I also gave functional programming introduction classes to students in engineeri
 - [Managing side effects in React applications @ React Beer Lille (2019)](/posts/discover-redux-saga/)
 - [Functional programming with fp-ts @ Linkvalue (2018)](https://github.com/gbogard/fp-ts-talk)
 - [Introduction to Akka actors for beginners @ Scala.io (2018) (Talk in French)](https://www.youtube.com/watch?v=tcj8IaG9_wc)
-

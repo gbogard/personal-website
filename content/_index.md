@@ -1,18 +1,16 @@
 Hi there! Thanks for stopping on my website.
 
-**My name is Guillaume Bogard, I am a functional programmer with an appeal for statically-typed languages
+**My name is Guillaume Bogard, I am a senior software engineer with an appeal for functional programming, statically-typed languages
 and distributed systems.**
 
-I code mostly in Haskell and Typescript, but I have a strong commercial experience with Scala and Rust. 
-I'm interested in statically-typed languages and functional programming in general.
+I've been programming for about 20 years, and professionally so for 10+ years.
 
-My hobbies include writing on my [blog](/posts), [making videos](https://www.youtube.com/channel/UCYJ2z2ywUUbJaG1uGciI2hg), going to the movies,
-riding roller-coasters and making noise on mechanical keyboards that go _click! clack!_.
+At my current job at [Aletiq](https://www.aletiq.com), I use mostly Haskell and Typescript, but I also have strong commercial experience with Scala and Rust.
+
+My hobbies include writing on my [blog](/posts), playing music, going to the movies, riding roller-coasters and making noise on mechanical keyboards that go _click! clack!_ or _thock_.
 
 I'm working for [Aletiq](https://www.aletiq.com), a product lifecycle management (PLM) software that helps manufacturers stay compliant and performant by
-managing their technical data. We're using Haskell and React.
-Before that, I used Rust to develop a fast, web-scale crawler for [Qwant](https://www.qwant.com/), a privacy-first search engine.
-I was also a lead developer at [Canal+](https://www.canalplus.com/), and contributed to build the internal video management tools
-using Scala.
+managing their technical data. We're using Haskell, Effect (Typerscript) and React. Specifically, I'm working on making Aletiq the first AI-native PLM, by building
+RAG systems, agents and deeply-integrated AI features.
 
 Here's my [résumé](/jobs) should you need more details.
