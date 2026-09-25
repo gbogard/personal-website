@@ -1,5 +1,6 @@
 ---
 layout: index.html
+title: Résumé
 ---
 
 <h2 class="post-title">About me</h2>
