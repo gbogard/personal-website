@@ -13,4 +13,4 @@ I'm working for [Aletiq](https://www.aletiq.com), a product lifecycle management
 managing their technical data. We're using Haskell, Effect (Typerscript) and React. Specifically, I'm working on making Aletiq the first AI-native PLM, by building
 RAG systems, agents and deeply-integrated AI features.
 
-Here's my [résumé](/jobs) should you need more details.
+Here's my [résumé](/resume) should you need more details.
